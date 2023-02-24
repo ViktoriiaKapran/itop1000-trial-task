@@ -1,0 +1,9 @@
+<header class="header">
+    <span>ITOP1000 Currencies</span>
+    <div *ngIf="ratesInfo">
+      <div *ngFor="let currency of displayedCurrencies">
+        <span class="currency-label">{{currency}}</span>
+        <span>{{getReversedCourse(ratesInfo[currency])}}</span>
+      </div>
+    </div>
+</header>

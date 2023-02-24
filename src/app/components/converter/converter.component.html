@@ -1,0 +1,29 @@
+<mat-card class="converter">
+  <form [formGroup]="form">
+    <mat-form-field >
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput [formControl]="form.get('startingAmount')">
+      <mat-error *ngIf="form.get('startingAmount').hasError('required')">Amount is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a currency</mat-label>
+      <mat-select formControlName="startingCurrency">
+        <mat-option *ngFor="let currency of currencyOptions" [value]="currency">{{currency}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput [formControl]="form.get('resultAmount')">
+      <mat-error *ngIf="form.get('resultAmount').hasError('required')">Amount is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a currency</mat-label>
+      <mat-select formControlName="resultCurrency">
+        <mat-option *ngFor="let currency of currencyOptions" [value]="currency">{{currency}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-card>
